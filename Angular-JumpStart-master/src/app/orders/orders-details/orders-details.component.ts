@@ -21,7 +21,6 @@ export class OrdersDetailsComponent implements OnInit {
     this.getCustomersPage(page);
 }
 
-
 getCustomersPage(page: number) {
     this.dataService.getCustomersPage((page - 1) * this.pageSize, this.pageSize)
         .subscribe((response: IPagedResults<ICustomer[]>) => {

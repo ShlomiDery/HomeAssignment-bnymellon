@@ -22,7 +22,6 @@ productQuantityView=0;
   quantityChanged(event)
   {
     console.log(event);
-    
   }
 
   BuyProductState()
@@ -30,32 +29,32 @@ productQuantityView=0;
     this.productToBuy=!this.productToBuy;
   }
 
-  addToCart()
+  addToCart():boolean
   {
     if (Number.isInteger(Number(this.productQuantityValue))) {
       console.log(Math.sign(Number(this.productQuantityValue)));
       
       if ((Math.sign(Number(this.productQuantityValue))==1)||(Math.sign(Number(this.productQuantityValue))==0)) {
-        console.log("lookkk",Number(this.productQuantityValue));
-        console.log(this.productQuantityValue.toString().length);
-        console.log(this.productQuantityValue.toString().charAt(0));
-
         if ((this.productQuantityValue.toString().length>1) && (this.productQuantityValue.toString().charAt(0)=='0')) {
           alert("validation error: range between 0 to 1000");
+          return false
         }
         else{
           this.productQuantityView=this.productQuantityValue;
             this.cartChanged.emit({product:this.product,productQuantity:this.productQuantityValue});
+            return true;
         }
       }
       else{
         alert("validation error: please enter only positive number");
         this.productQuantityValue=0;
+        return false;
       }
     }
     else{
       alert("validation error: please enter a number");
       this.productQuantityValue=0;
+      return false;
     }
   }
 
