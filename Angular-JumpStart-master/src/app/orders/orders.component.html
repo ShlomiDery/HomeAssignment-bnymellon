@@ -1,0 +1,47 @@
+<div class="customers view indent">
+    <div class="container">
+        <header>
+            <h3>
+                <span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Orders
+            </h3>
+        </header>
+        <br />
+        <div class="row">
+            <div class="col-md-10">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="toolbar-item">
+                            <a (click)="changeDisplayMode(displayModeEnum.Details)" [class.active]="displayMode === displayModeEnum.Details">
+                                <span class="glyphicon glyphicon-th-large"></span> Orders View
+                            </a>
+                        </li>
+                  
+                        <li class="toolbar-item">
+                            <a (click)="changeDisplayMode(displayModeEnum.Add)" [class.active]="displayMode === displayModeEnum.Add">
+                                <span class="glyphicon glyphicon-plus"></span> Add Order
+                            </a>
+                        </li>
+                    </ul>
+                    
+                
+                </div>
+            </div>
+        </div>
+<div *ngIf="customers" [hidden]="displayMode !== displayModeEnum.Add">
+        <mat-form-field appearance="fill" style="margin-top: 4%">
+            <mat-label>Select An Customer</mat-label>
+            <mat-select (change)="changeCustomer()" [(value)]="selected">
+              <mat-option *ngFor="let customer of customers" [value]="customer.id" >
+                  {{customer.firstName}} {{customer.lastName}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+<cm-orders-details [customers]="customersPage" [hidden]="displayMode !== displayModeEnum.Details" ></cm-orders-details>
+<cm-products [hidden]="displayMode !== displayModeEnum.Add" (orderChanged)="orderChanged($event)"> </cm-products>
+
+</div>
+<div class="row card-container">
+<button  [hidden]="displayMode !== displayModeEnum.Add" type="submit" class="btn btn-success" style="float: right;width: 220px;height: 50px;"  (click)="buyCart()">Buy Cart</button>
+</div>
+</div>

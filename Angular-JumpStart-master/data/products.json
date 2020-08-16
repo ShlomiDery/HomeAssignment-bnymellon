@@ -1,0 +1,16 @@
+[
+    {"productId":1,"productName": "Basketball", "itemCost": 7.99},
+    {"productId":2,"productName": "Shoes", "itemCost": 199.99},
+    {"productId":3,"productName": "Frisbee", "itemCost": 2.99},
+    {"productId":4,"productName": "Hat", "itemCost": 5.99},
+    {"productId":5,"productName": "Boomerang", "itemCost": 29.99},
+    {"productId":6,"productName": "Helmet", "itemCost": 19.99},
+    {"productId":7,"productName": "Kangaroo Saddle", "itemCost": 179.99},
+    {"productId":8,"productName": "Budgie Smugglers", "itemCost": 19.99},
+    {"productId":9,"productName": "Swimming Cap", "itemCost": 5.49},
+    {"productId":10,"productName": "Bow", "itemCost": 7.99},
+    {"productId":11,"productName": "Arrows", "itemCost": 399.99},
+    {"productId":12,"productName": "Baseball", "itemCost": 9.99},
+    {"productId":13,"productName": "Bat", "itemCost": 19.99},
+    {"productId":14,"productName": "Surfboard", "itemCost": 299.99}
+]

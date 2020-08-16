@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row card-container">
+        <cm-filter-textbox class="navbar-right"
+(changed)="filterChanged($event)"></cm-filter-textbox>
+    </div>
+    <div class="row card-container">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of filteredProducts;trackBy">
+     <cm-product [product]="product" (cartChanged)="cartChanged($event)"></cm-product>
+        </div>
+        <div *ngIf="products">
+        <div *ngIf="!products.length">
+            No Products Found
+        </div>
+    </div>
+
+</div>
+
+
+<cm-pagination
+[totalItems]="totalRecords" 
+[pageSize]="pageSize" 
+(pageChanged)="pageChanged($event)"></cm-pagination>
+</div>
+ 
+    
+ 
